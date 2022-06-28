@@ -1,0 +1,8 @@
+measure: note
+dimensions:
+  - quality
+  # - img_type
+  - status
+  # - making
+  # - key: created_at
+    # granularity: day

@@ -1,0 +1,24 @@
+<div class="jumbotron">
+  <h1 class="display-4"><%= t('description_of_signature') %></h1>
+  <p>
+    <strong><%= t('activerecord.attributes.signature.signature_cod') + ": " %></strong>
+    <%= @signature.signature_cod %>
+  </p>
+  <p>
+    <strong><%= t('activerecord.attributes.signature.short_name') + ": " %></strong>
+    <%= @signature.short_name %>
+  </p>
+  <p>
+    <strong><%= t('activerecord.attributes.signature.description') + ": " %></strong>
+    <%= @signature.description %>
+  </p>
+  <hr class="my-4">
+  <%= link_to (render 'renders/button_back'), signatures_path, class:"btn btn-secondary btn-sm" %>
+  <%= link_to (render 'renders/button_edit'), edit_signature_path(@signature), {class:"btn btn-primary btn-sm", 'data-toggle' => "modal", 'data-target' => "#staticBackdrop"} %> 
+</div>
+
+
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true")>
+  <% @header_edit = t('helpers.submit.signature.update') %>
+  <%= render 'modal_signature', signature: @signature%>
+</div>

@@ -1,0 +1,76 @@
+<h3>BOND</h3>
+<p id="notice"><%= notice %></p>
+
+<div class="jumbotron">
+  <h3 class="display-4">
+      <strong>Państwo:</strong>
+      <%= @currency.country.country_en %>
+  </h3>
+  <p>
+    <strong>Cod:</strong> <%= @currency.cod %>  |  
+    <strong>Waluta:</strong> <%= @currency.currency %>
+  </p>
+  <p>
+    <strong>Active:</strong> <%= @currency.active %>  |  
+    <strong style="color:red">Okres występowania: </strong><%= @currency.currency_series %>  </p>
+  <p>
+    <strong>Description:</strong><%= @currency.description %>
+  </p>
+  <%= link_to (render 'renders/button_back'), bond_currencies_path(@currency.country_id, 'pattern' => @currency.pattern), class:"btn btn-secondary btn-sm" %> 
+  <%= link_to 'Add Bond', new_currency_bond_path(@currency), class:"btn btn-primary btn-sm"%>  
+  <%= link_to (render 'renders/button_edit'), edit_currency_path(@currency), class:"btn btn-primary btn-sm",style:"float: right"  %>
+
+
+</div>
+
+<table class="table table-sm table-striped table-bordered table-hover"  style="font-size: small;">
+  <thead class="thead-dark">
+  <tr>
+      <th>Id</th>
+      <th>Nominał</th>
+      <th>Waluta</th>
+      <th>Rok</th>
+      <th>SIG</th>
+      <th>Status</th>
+      <th>Kupno</th>
+      <th>Sprzedaż</th>
+      <th style="width:30%">Avers/Reverse</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <% @collection.each do |bond| %>
+
+      <tr>
+        <td><%= bond.id %></td>
+        <td><%= number_with_delimiter(bond.denomination , delimiter: " ") %></td>
+        <td><%= bond.name_currency %></td>
+        <td><%= bond.bond_date %></td>
+        <td><%= bond.signature_code %></td>
+        <td><%= bond.status %></td>
+        <td><%= number_to_currency(bond.price_buy, unit:"zł", precision: 2, format: "%n %u") %></td>
+        <td><%= number_to_currency(bond.price_sell, unit:"zł", precision: 2, format: "%n %u")%></td>
+        <td>        
+            <% if (bond.avers_path.length > 200) %>
+              <div class="show-note">
+                  <%= link_to (image_tag(bond.avers_path, :alt => "AVERSE" , style:"width:40%;height:50%")), bond_path(bond) %>
+                  <%= link_to (image_tag(bond.reverse_path, :alt => "REVERSE" , style:"width:40%;height:50%")), bond_path(bond) %>
+              </div>
+            <% else %>
+              <%= bond.avers_path %>
+              <%= bond.reverse_path %>
+            <% end %> 
+        </td>
+
+        <%
+=begin%>
+ <td><%= link_to (render 'renders/button_show'), bond_path(bond), class:"btn btn-info btn-sm" %></td> 
+<%
+=end%>
+        <td><%= link_to (render 'renders/button_edit'), edit_bond_path(bond), class:"btn btn-primary btn-sm" %></td> 
+
+        <td><%= link_to (render 'renders/button_delete'), bond, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm" %></td>
+      </tr>
+
+  <% end %>
+  
+</table>

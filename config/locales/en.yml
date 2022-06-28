@@ -1,0 +1,367 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+en:
+  menu:
+    country:
+      country: "Countries"
+      add_country: "Add Country"
+      countries: "Countries"
+    note:
+      note: "Notes"
+      add_note: "Add Note"
+      new_notes: "New Notes (To Veryfication)"
+      note_sold: "Note Sold"
+      note_for_sell: "Note For Sell"
+      note_for_sell_list: "Note For Sell List"
+      collection: "Collection"
+    coin:
+      coin: "Coins"
+      add_coin: "Add Coin"
+      new_coins: "New Coins (To Veryfication)"
+      # coin_sold: "Coin Sold"
+      coin_for_sell: "Coin For Sell"
+      collection: "Collection"
+    bond:
+      bond: "Bonds"
+      add_bond: "Add Bond"
+      collection: "Collection"
+    future:
+      future: "Future"
+      note_future: "Note Future"
+      note_future_list: "Note Future List"
+    set:
+      set: "Sets"
+      reports: "Reports"
+      chart: "Chart"
+      set_chart: "Set Chart"
+      pattern: "Pattern"
+      bought: "Bought"
+      signature_cod: "Signature Cod"
+  helpers:
+    submit:
+      country:
+        create: "Add Country"
+        update: "Update Country"
+      note:
+        create: "Add Note"
+        update: "Update Note"
+      coin:
+        create: "Add Coin"
+        update: "Update Coin"
+      bond:
+        create: "Add Bond"
+        update: "Update Bond"
+      bought:
+        create: "Add Seller"
+        update: "Update Seller"
+      signature: 
+        create: "Add Signature"
+        update: "Update Signature"
+      customer:
+        create: "New Customer"
+        update: "Edit Customer"
+      setting:
+        create: "Add New Setting"
+        update: "Update Setting"
+      report:
+        create: "Add New Report"
+        update: "Update Report"
+      chart:
+        create: "Add new Type Chart"
+        update: "Update type chart"
+      pattern:
+        create: "Add New Pattern"
+        update: "Update Pattern"
+  activerecord:
+    attributes:
+      country:
+        continent: "Continent"
+        country_en: "Country (en)"
+        country_pl: "Country (pl)"
+        capital_city: "Capital City"
+        alfa_2: "Alfa 2"
+        alfa_3: "Alfa 3"
+        numeric_code: "Numeric code"
+        iso_code: "Iso code"
+        exists: "Exists"
+        description: "Description"
+      note:
+        denomination: "Denomination"
+        name_currency: "Name Currency"
+        note_date: "Date"
+        signature_code: "Signature"
+        price_buy: "Price Buy"
+        price_sell: "Price"
+        quantity: "Quantity"
+        quality: "Quality"
+        status: "Status"
+        description: "Description"
+        img_type: "Image Type"
+        series: "Series"
+        making: "Making"
+        date_buy_note: "Date Buy Note"
+        bought: "Place Of Purchase"
+        status_sell: "Status Sell"
+        avers_path: "Avers Path"
+        reverse_path: "Reverse Path"
+        note_width: "Width"
+        note_height: "Height"
+      coin:
+        denomination: "Denomination"
+        name_currency: "Name Currency"
+        coin_date: "Date"
+        signature_code: "Signature"
+        price_buy: "Price Buy"
+        price_sell: "Price"
+        diameter: "Diameter"
+        thickness: "Thickness"
+        weight: "Weight"
+        composition: "Composition"
+        quantity: "Quantity"
+        quality: "Quality"
+        status: "Status"
+        description: "Description"
+        img_type: "Image Type"
+        series: "Series"
+        making: "Making"
+        date_buy: "Date Buy Coin"
+        bought: "Bought"
+        status_sell: "Status Sell"
+        avers_path: "Avers Path"
+        reverse_path: "Reverse Path"
+      currency:
+        cod: "Cod"
+        pattern: "Pattern"
+        currency: "Currency"
+        change: "Change"
+        active: "Active"
+        data_exchange: "Data Exchange"
+        currency_series: "Currency Series"
+        currency_from: "Currency From"
+        converter: "Converter"
+        description: "Description"
+      bought:
+        name: "Seller"
+        full_name: "Full Name"
+        description: "Seller Information"
+      signature:
+        signature_cod: "Signature Cod"
+        short_name: "Name"
+        description: "Description"
+      customer:
+        active: "Aktive"
+        name: "Name"
+        lastname: "Last Name"
+        city: "City"
+        zip_code: "Zip Code"
+        street: "Street"
+        number: "Number"
+        email: "Email"
+        nick: "Nick"
+        phone: "Phone"
+        description: "Description"
+      order:
+        order_number: "Order Number"
+        order_date: "Order Date"
+        order_status: "Order Status"
+        order_date_send: "Order Date Send"
+        tracking_number: "Tracking Number"
+        shipment_type: "Shipment Type"
+        shipment_cost: "Shipment Cost"
+        description: "Description"
+      setting:
+        web: "Web"
+        name: "Name Setting"
+        value: "Value"
+        description: "Description"
+      report:
+        report: "Report"
+        string: "String"
+        name: "Name Report"
+        description: "Description"
+      chart:
+        name: "Name Chart"
+        description: "Description"
+      pattern:
+        name_en: "Name English"
+        name_pl: "Name Polish"
+        description: "Description"
+    errors:
+      models:
+        note:
+          attributes:
+            making:
+              blank: " - Can't be blank!"
+            status: 
+              blank: " - Can't be blank!"    
+            img_type:
+              blank: " - Can't be blank!"
+            price_buy:
+              blank: " - Can't be blank!"
+              not_a_number: " - Is not a number"
+            price_sell:
+              blank: " - Can't be blank!"
+              not_a_number: " - Is not a number"
+            note_width:
+              not_a_number: " - Is not a number"
+            note_height:
+              not_a_number: " - Is not a number"
+        coin:
+          attributes:
+            status: 
+              blank: " - Can't be blank!"    
+            img_type:
+              blank: " - Can't be blank!"
+            diameter:
+              blank: " - Can't be blank!"
+              not_a_number: " - Is not a number"
+            thickness:
+              blank: " - Can't be blank!"
+              not_a_number: " - Is not a number"
+            weight:
+              blank: " - Can't be blank!"
+              not_a_number: " - Is not a number"
+            price_buy:
+              blank: " - Can't be blank!"
+              not_a_number: " - Is not a number"
+            price_sell:
+              blank: " - Can't be blank!"
+              not_a_number: " - Is not a number"
+        bond:
+          atributes:
+            width:
+              not_a_number: " - Is not a number"
+            height:
+              not_a_number: " - Is not a number"
+        signature:
+          attributes:
+            signature_cod:
+              not_a_number: " - Is not a number"
+        chart:
+          attributes:
+            name:
+              blank: " Can't be blanck!"
+        order_item:
+          attributes:
+            quantity:
+              blank: " - Can't be blank!"
+              exclusion: " - Must be greater than '0'"
+            final_price:
+              blank: " - Can't be blank!"
+              not_a_number: " - Is not a number"
+              greater_than_or_equal_to: "- Greater than or equal to '0'"
+  tables:
+    country:
+      headers:
+        continent: "Continent"
+        country_en: "Country (en)"
+        country_pl: "Country (pl)"
+        capital_city: "Capital City"
+        alfa_2: "Alfa 2"
+        alfa_3: "Alfa 3"
+        numeric_code: "Numeric code"
+        iso_code: "Iso code"
+        exists: "Exists"
+        flag: "Flag"
+  buttons:
+    back: "Back"
+    show: "Show"
+    edit: "Edit"
+    delete: "Delete"
+    search: "Search"
+    close: "Close"
+
+  date:
+    month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
+    order:
+      - :year
+      - :month
+      - :day
+
+  shipping_cost: "Shipping Cost"
+  priority_registered_letter_pl : "Priority registered letter (Poland)"
+  possible_personal_collection: "Possible personal collection"
+  pieces: "pcs"
+  note_future_list: "Note Future List"
+  list_banknotes_for_sale: "List of banknotes for sale"
+  list_countries_note_for_sell: "List of countries (banknotes for sale)"
+  country: "Country"
+  note: 'Note'
+  year: 'Year'
+  price: "Price"
+  to_list: " To List"
+  dimension: "Dimension"
+  currency: "Currency"
+  
+
+  # Add, Update, Delete
+
+  add_new_country: "Add New Country"
+  edit_country: "Edit Country"
+
+  new_seller: "New Seller"
+  edit_seller: "Edit Seller"
+
+  new_customer: "New Customer"
+  edit_customer: "Editing Customer"
+  show_customer: "Customer"
+  list_customers: "List Customers"
+
+  note_success_update: "Note was successfully updated."
+  note_success_create: "Note was successfully created."
+
+  currency_create: "Currency was successfully create."
+  currency_update: "Currency was successfully update."
+  currency_delete: "Currency was successfully destroyed."
+  currency_not_empty: "Currency is not empty (currencies contain %{items} elements)."
+
+  signature_success_create: "Signature was successfully created."
+  signature_success_update: "Signature was successfully updated."
+  signature_success_delete: "Signature was successfully destroyed."
+
+  # **************CURRENCY*****************
+  new_currency: "New Currency"
+  edit_currency: "Editting Currency"
+
+  # *************SIGNATURES****************
+  signature_codes: "Signature Codes"
+  description_of_signature: "Description Of Signature Codes"
+
+#*****************CHART***********************
+  new_type_chart: "New Type Chart"
+  edit_type_chart: "Edit Type Chart"
+  type_charts: "Type Charts"
+
+#  ***************ORDRE**********************
+
+
+# *****************END ORDER ***************

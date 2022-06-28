@@ -1,0 +1,55 @@
+data_method: MyDataMethodsView.Note_data_add_to_database
+chart:
+  datasets:
+#    barPercentage: 10
+    nimBarThickness: 4
+#    maxBarThickness: 8
+    minBarLength: 2
+  options:
+    plugins:
+      subtitle:
+        display: true,
+        text: 'Dodawanie Banknotów Do Bazy'
+        font:
+          family: 'Comic Sans MS'
+          size: 20
+          weight: 'bold'
+          lineHeight: 1.2
+#      legend:
+#        position: left
+    scales:
+      x:
+        ticks:
+          color: 'red'
+        title:
+          display: true
+          text: 'Lata'
+          #          color: '#911'
+          color: 'black'
+          font:
+            #            family: 'Comic Sans MS'
+            size: 15
+            weight: 'bold'
+            lineHeight: 1.2
+        scaleLabel:
+          display: true
+          labelString: Creation date
+        stacked: true
+
+      y:
+        beginAtZero: true
+        ticks:
+          color: 'green'
+        title:
+          display: true
+          text: 'Ilość Banknotów'
+          color: '#200'
+          font:
+            family: 'Comic Sans MS'
+            size: 20
+            weight: 'bold'
+            lineHeight: 1.2
+        scaleLabel:
+          display: true
+          labelString: Note
+        stacked: true

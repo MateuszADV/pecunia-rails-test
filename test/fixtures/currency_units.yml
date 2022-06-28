@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  country: one
+  unit_name_en: MyString
+  unit_name_pl: MyString
+  cod: MyString
+  unit: MyString
+  unit_format: MyString
+  description: MyText
+
+two:
+  country: two
+  unit_name_en: MyString
+  unit_name_pl: MyString
+  cod: MyString
+  unit: MyString
+  unit_format: MyString
+  description: MyText

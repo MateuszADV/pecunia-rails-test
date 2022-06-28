@@ -1,0 +1,25 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header" style="text-align: center; justify-content: center; background: #666666">
+      <h3 class="modal-title" id="staticBackdropLabel">Currency Unit</h3>
+      <%= render 'flag_country', currency_unit: currency_unit %>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body" style="background: #a7a8a8; font-size: 14px">
+      <span><b>Countinent:</b> <%= currency_unit.country %></span><br>
+      <span><b>Country:</b> <%= currency_unit.country.country_en %></span><br>
+      <span><b>Unit Name(En):</b> <%= currency_unit.unit_name_en %></span><br>
+      <span><b>Unit Name(Pl):</b> <%= currency_unit.unit_name_pl %></span><br>
+      <span><b>COD:</b> <%= currency_unit.cod %></span><br>
+      <span><b>Unit:</b> <%= currency_unit.unit %></span><br>
+      <span><b>Unit Format:</b> <%= currency_unit.unit_format %></span><br>
+      <span><b>Status:</b> <%= currency_unit.status %></span><br>
+      <span><b>Description:</b> <%= currency_unit.description %></span><br>
+    </div>
+    <div class="modal-footer" style="background: #666666">
+      <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal"><%= render ('renders/button_close') %></button>
+    </div>
+  </div>
+</div>

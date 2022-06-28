@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Continents</h1>
+<div>
+  <%= link_to 'New Continent', new_continent_path, class: "btn btn-sm btn-primary" %>
+</div>
+
+<table class="table table-sm table-striped table-bordered table-hover" style="font-size: small; background: darkgray">
+  <thead class="thead-dark">
+    <tr>
+      <th>Id</th>
+      <th>Continent Code</th>
+      <th>Name pl</th>
+      <th>Name en</th>
+      <th>File name</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @continents.each do |continent| %>
+      <tr>
+        <td><%= continent.id %></td>
+        <td><%= continent.continent_code %></td>
+        <td><%= continent.name_pl %></td>
+        <td><%= continent.name_en %></td>
+        <td><%= continent.file_name %></td>
+        <td style="width: 80px;">
+          <%= link_to (render 'renders/button_show_small_icon'), continent, {class:"btn btn-info btn-vsm", 'data-toggle' => "modal", 'data-target' => "#" + "Con"+ continent.id.to_s} %>
+          <div class="modal fade" id=<%= "Con" + continent.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <%= render 'show_modal', continent: continent %>
+          </div>
+          <%= link_to (render 'renders/button_edit_small_icon'), edit_continent_path(continent), class: "btn btn-vsm btn-primary" %>
+        </td>
+        <td><%= link_to (render 'renders/button_delete_small_icon'), continent, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-vsm btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

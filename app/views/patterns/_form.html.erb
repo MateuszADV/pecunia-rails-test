@@ -1,0 +1,32 @@
+<%= form_with(model: pattern) do |form| %>
+  <% if pattern.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pattern.errors.count, "error") %> prohibited this pattern from being saved:</h2>
+
+      <ul>
+        <% pattern.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-4 field">
+    <%= form.label :name_en %>
+    <%= form.text_field :name_en, class:"form-control form-control-sm"  %>
+  </div>
+
+  <div class="col-4 field">
+    <%= form.label :name_pl%>
+    <%= form.text_field :name_pl, class:"form-control form-control-sm"  %>
+  </div>
+
+  <div class="col-4 field">
+    <%= form.label :description %>
+    <%= form.text_area :description, class:"form-control form-control-sm"  %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary btn-sm" %>
+  </div>
+<% end %>

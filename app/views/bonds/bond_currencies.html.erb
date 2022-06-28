@@ -1,0 +1,43 @@
+<div class="jumbotron">
+  
+<%= render 'renders/jumbotron_currency' %>
+
+</div>
+
+<h2>Waluty</h2>
+ <table class="table table-sm table-striped table-bordered table-hover">
+  <thead class="thead-dark">
+  <tr>
+      <th>COD</th>
+      <th>Waluta</th>
+      <th>Active</th>
+      <th>Data wymiany</th>
+      <th>Okres Wystepowania</th>
+      <th>Rodzaj</th>      
+      <th>Opis</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <% @currencies.each do |currency| %>
+    <tr>
+      <td><%= currency.cod %></td>
+      <td><%= currency.currency %></td>
+      <td><%= currency.active %></td>
+      <td><%= currency.data_exchange %></td>
+      <td><%= currency.currency_series %></td>
+      <td><%= currency.pattern %></td>
+      <td><%= currency.description %></td>
+      
+
+      <td>
+        <%= link_to (render 'renders/button_show'), bond_show_currency_path(currency), class:"btn btn-info btn-sm" %>
+        <%= link_to (render 'renders/button_edit'), edit_currency_path(currency), class:"btn btn-primary btn-sm" %>
+      </td>
+      <td>
+        <%= link_to (render 'renders/button_delete'), currency, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm" %>
+      </td> 
+
+
+    </tr>
+    <% end %>
+</table>

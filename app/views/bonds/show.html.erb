@@ -1,0 +1,120 @@
+<div class="jumbotron">
+  <div class="container row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8">
+      <%= render 'renders/show_flag_country' %>
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+  <p>
+    <strong>Id:</strong>
+    <%= @bond.currency_id %>
+  </p>
+  <h1 class="display-4" id="notice"></h1>
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4" style="font-size: small;">
+    <% if user_signed_in? && current_user.role == 'admin' %>
+      <div class="col p-0">
+        <strong>Data zakupu:</strong>
+        <%= @bond.date_buy %>
+      </div>
+      <div class="col p-0">
+        <strong>Miejsce zakupu:</strong>
+        <%= @bond.bought %>
+      </div>
+      <div class="col p-0">
+        <strong>cena zakupu:</strong>
+        <%= number_to_currency(@bond.price_buy, unit:"zł", precision: 2, format: "%n %u") %>
+      </div>
+
+      <% if @bond.price_sell.to_s != "" %>
+        <div class="col p-0">
+          <strong>Cena:</strong>
+          <%= number_to_currency(@bond.price_sell, unit:"zł", precision: 2, format: "%n %u") %>
+        </div>
+      <% end %>
+    <% end %>
+      <div class="col p-0">
+        <strong>Nominał:</strong>
+        <%= number_to_currency(@bond.denomination , delimiter: " ", unit:"", precision: 2, format: "%n %u") %>
+      </div>
+      <div class="col p-0">
+        <strong>Nazwa waluty:</strong>
+        <%= @bond.name_currency %>
+      </div>
+      <div class="col p-0">
+        <strong>Data:</strong>
+        <%= @bond.bond_date %>
+      </div>
+      <div class="col p-0">
+        <strong>SERIA:</strong>
+        <%= @bond.series %>
+      </div>
+      <div class="col p-0">
+        <strong>Signature code:</strong>
+        <%= @bond.signature_code %>
+      </div>
+
+
+      <div class="col p-0">
+        <strong>Ilość:</strong>
+        <%= @bond.quantity %>
+        <%= @bond.unit_quantity %>
+      </div>
+      <div class="col p-0">
+        <strong>Stan monety:</strong>
+        <%= @bond.quality %>
+      </div>
+
+      <div class="col p-0">
+        <strong>typ obrazka:</strong>
+        <%= @bond.img_type %>
+      </div>
+      <% if (@bond.width != nil && @bond.height != nil) %>
+        <div class="col p-0">
+          <div class="pl-0" style="float: left">
+            <b>Width: </b><%= @bond.width %>
+          </div>
+          <div style="float: left">
+            <b>Height: </b><%= @bond.height %>
+          </div>
+        </div>
+      <% end %>
+      <div class="col p-0">
+        <strong>Status:</strong>
+        <%= @bond.status %>
+      </div>
+      <% if @bond.status_sell != "" %>
+        <div class="col p-0">
+          <strong>Status sprzedaży:</strong>
+          <%= @bond.status_sell %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <p>
+    <strong>Description:</strong>
+    <%= @bond.description %>
+  </p>
+  <hr class="my-4">
+ 
+  <% @avers = @bond.avers_path %>
+  <% @reverse = @bond.reverse_path %>
+
+ <%= render 'renders/show_image_lightbox' %>
+ 
+  <div>
+    <% if user_signed_in? && current_user.role == 'admin' %>
+      <div style="float: left">
+        <%= link_to (render 'renders/button_edit'), edit_bond_path(@bond), class:"btn btn-primary btn-sm" %>
+        <%= link_to (render 'renders/button_back'), bond_show_currency_path(@bond.currency_id), class:"btn btn-secondary btn-sm" %>
+      </div>
+    <% end %>
+    <div style="float:right">
+        <%= link_to (render 'renders/button_back'), show_bonds_path(@bond.currency_id), class:"btn btn-outline-info btn-sm" %> 
+    </div>
+  </div>
+  
+</div>

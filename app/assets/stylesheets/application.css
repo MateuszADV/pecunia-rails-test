@@ -1,0 +1,456 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *= require reports_kit/application
+ *
+ *= require_tree .
+ *= require_self
+
+ */
+body {
+	/* margin-right: 3%;
+	margin-left:3%; */
+	/* background-color: lightslategray; */
+	background-image: url('/assets/ground/mochaGrunge.png')
+}
+
+div {
+	/* text-align: center; */
+	padding: 5px;
+}
+
+.center-row {
+	/* align-items: center; */
+	text-align: center;
+    justify-content: center;	
+}
+
+.center-button 
+{
+	display: flex;
+    align-items: center;
+	text-align: center;
+    justify-content: center;
+}
+
+.logo-center {
+	display: flex;
+    align-items: center;
+	text-align: center;
+    justify-content: center;
+	/* text-align: -moz-center; */
+	background-color: lightgrey;
+}
+
+.background-flags {
+	background-color: lightgrey;
+}
+.country-flag {
+	text-align: center; 
+	/*height: 100px;*/
+    /*width: 25%;*/
+}
+
+ .size-flag {
+	width:35%;
+	/* height:30%; */
+ }
+ .size-flag-container {
+    min-width: 140px;
+	max-width:20%;
+ }
+ .position-flag {
+	text-align: center; 
+	/* height: 90px; */
+ }
+
+ .flag-show
+ {
+	text-align:center; 
+	font-size: x-large;
+	/*width: 25%;*/
+	/* margin-top: -60px; */
+ }
+
+ .country-flag-lang {
+	text-align: center; 
+	/* height: 100px; */
+}
+.size-flag-lang {
+	width:50%;
+	/* height:30%; */
+ }
+
+ .jumbotron
+ {
+	 padding-top: 5px;
+ }
+.margin-footer
+{
+    margin-block-end: 20px;
+}
+
+.stopka
+{
+    background-color: #bfbfbf;
+    position:fixed;
+    bottom:0;
+    min-width:100%;
+	/* height: 32px; */
+	/* margin-bottom: 10px; */
+    /* margin-left: 2%;
+    margin-right: 2%; */
+    text-align: center;
+    /* font-size: 20px; */
+}
+
+
+/* DROPDOWN */
+
+.dropbtn {
+	background-color: #343a40 !important;
+	color: gray;
+	/* padding: 16px; */
+	font-size: 16px;
+	border: none;
+  }
+  
+  .dropdown {
+	position: relative;
+	display: inline-block;
+  }
+  
+  .dropdown-content {
+	display: none;	
+	position: absolute;
+	background-color: rgba(128, 128, 128, 0.9);
+	min-width: 160px;
+	box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+  }
+  
+  .dropdown-content a {
+	color: black;
+	/* padding: 12px 16px; */
+	text-decoration: none;
+	display: block;
+  }
+  
+  .dropdown-content a:hover {
+	background-color: rgba(105, 105, 105, 0.9);
+	border-radius: 15px;
+}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+  /* SHOW COLLECTION */
+.image-collection-bond
+{
+    width:50%;
+    height:50%; 
+    padding:10px;
+}
+/* .item
+{
+    margin: 15px;
+    width: 50%;
+	height: 50%;
+}  */
+
+
+.btn-image-collection
+{
+	text-align: left; 
+	/* margin-left: 10px;  */
+	margin-right: 10px;
+	margin-top: 25%;
+	padding: 0%;
+}
+.image-container
+{
+	text-align: center; 
+	width: 90%; 
+	height: 60%; 
+	margin-right: 5%; 
+	margin-left: 5%;
+    justify-content: space-between
+}
+.image-out-container
+{
+	border: black solid 1px; 
+	background-color: lightgray; 
+	/* width: 90%;  */
+	height: 100%;
+}
+.image-out-container:hover
+{
+	border: black solid 1px; 
+	background-color: rgb(194, 194, 194); 
+	/* width: 90%;  */
+	/* height: 100%; */
+}
+
+.primary-container
+{
+	width: 255px; 
+	/* height: 250px;  */
+	margin-bottom: 30px;
+}
+.image-collection_size
+{
+	max-width:100%;
+	max-height: 130px;
+}
+.item-collection-info
+{
+	/* margin-top: -20px;  */
+	font-size: smaller;
+	text-align: left;
+}
+
+.image-ratation
+{
+	width:30%; 
+	transform: rotate(90deg); 
+	float: left; 
+	margin-top:70px
+}
+
+/* LIGTH BOX */
+* {
+	box-sizing: border-box;
+  }
+  
+  .row > .column {
+	padding: 0 8px;
+  }
+  
+  .row:after {
+	content: "";
+	display: table;
+	clear: both;
+  }
+  
+  .column {
+	float: left;
+	width: 25%;
+  }
+  
+  /* The Modal (background) */
+  .modal_lightbox{
+	display: none;
+	position: fixed;
+	z-index: 1;
+	padding-top: 30px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: black;
+	background: rgba(0,0,0,0.7);
+  }
+  
+  /* Modal Content */
+  .modal-content {
+	position: relative;
+	background-color: #fefefe;
+	margin: auto;
+	padding: 0;
+	width: 80%;
+	max-width: 1200px;
+  }
+  
+  /* The Close Button */
+  .close {
+	color: white;
+	position: absolute;
+	top: 10px;
+	right: 25px;
+	font-size: 35px;
+	font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+	color: #999;
+	text-decoration: none;
+	cursor: pointer;
+  }
+  
+  .mySlides {
+	display: none;
+	background-color: black;
+	padding: 2px;
+  }
+  
+  .cursor {
+	cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	padding: 16px;
+	margin-top: -50px;
+	color:black;
+	font-weight: bold;
+	font-size: 20px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+	-webkit-user-select: none;
+	background-color: rgba(211, 211, 211, 0.432);
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+	background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+	/* color: #f2f2f2; */
+	color: red;
+	font-size: 12px;
+	padding: 8px 12px;
+	position: absolute;
+	top: 0;
+  }
+  
+  img {
+	margin-bottom: -4px;
+  }
+  
+  .caption-container {
+	text-align: center;
+	background-color: black;
+	padding: 2px 16px;
+	color: white;
+  }
+  
+  .demo {
+	opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+	opacity: 1;
+  }
+  
+  img.hover-shadow {
+	transition: 0.3s;
+  }
+  
+  .hover-shadow:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .image-size-show
+  {
+	/* height: 100%; */
+	max-width: 100%;
+	max-height: 500px;
+  }
+
+  /*styl tła TEST  */
+  .bg-sell:nth-child(2n+1)
+  {
+	background-color: rgba(0,0,0,.05);
+  }
+  .bg-sell:hover
+  {
+	background-color: rgba(0, 0, 0, 0.1); 
+  }
+
+  /* +++++++++++++++++++ KAMINARI PAGINATION ++++++++++++++++++++++++++++++*/
+
+  .page-link
+  {
+	padding: 2px 5px;
+	background-color: #a7a8a8;
+	color: #151515;
+  }
+  .page-item.active .page-link
+  {
+	z-index: 0;
+	background-color: black;
+	color: wheat;
+	border-color: #dee2e6;
+  }
+  .page-item.disabled .page-link
+  {
+	background-color: rgb(239, 240, 241);
+  }
+
+  textarea.form-control
+  {
+	min-height: 100px;
+  }
+
+  .textarea-note-future
+  {
+	background-color:darkgray;
+	max-height: 200px; 
+	min-height: 100px;
+    padding-left: 5px;
+    width:100%; 
+	font-size: small;
+  }
+
+  .navbar-nav .nav-link
+  {
+	padding-right: 10px;
+	padding-left: 10px;
+    /*padding-bottom: 2px;*/
+    /*padding-top: 2px;*/
+  }
+
+  /* *********** RENDER/data_ad************* */
+  .data-ad
+  {
+	background: lightgray; 
+	width: max-content; 
+	font-size: small;
+  }
+
+  /*********************MODAL BACKGROUNF************************/
+
+.modal-backdrop {
+    /*background-color: rgba(0,0,0,.0001) !important;*/
+    opacity: 0;
+}
+.modal-backdrop.fade {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    /*background-color: rgba(0, 0, 0, 0.40) !important;*/
+}
+.modal-backdrop.in {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.modal{
+    background-color: rgba(0, 0, 0, 0.60) !important;
+}

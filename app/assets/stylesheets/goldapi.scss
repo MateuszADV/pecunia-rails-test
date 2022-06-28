@@ -1,0 +1,68 @@
+// Place all the styles related to the Goldapi controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.green
+{
+  color: green;
+  background: black;
+  padding-left: 4px;
+}
+.red
+{
+  color: red;
+  background: black;
+  padding-left: 4px;
+}
+.change-bacground-A
+{
+  background-color: #151515;
+}
+
+.change-bacground-B
+{
+  background-color: darkgray;
+}
+
+.change
+{
+  display: block;
+  min-width: 80px;
+  text-align: right;
+}
+
+.change-description
+{
+  display: block;
+  width: 80px;
+}
+
+.price-close
+{
+  display: block;
+  color: yellow;
+}
+
+.price-open
+{
+  display: block;
+  color: chartreuse;
+}
+
+.price-current
+{
+  display: block;
+  color: cornflowerblue;
+}
+
+.price-low
+{
+  display: block;
+  color: red;
+}
+
+.price-high
+{
+  display: block;
+  color: green;
+}

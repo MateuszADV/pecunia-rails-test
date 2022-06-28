@@ -1,0 +1,16 @@
+<div  class="card text-center text-white bg-info">
+  <div class="header">
+    <h3><%= t('edit_currency') %></h3>
+  </div>
+</div>
+
+<%= render 'form', currency: @currency %>
+
+<%
+=begin%>
+ <%= link_to 'Show', @currency, class:"btn btn-secondary" %> 
+
+ <%= link_to 'Back', country_path(@currency.country_id), class:"btn btn-dark" %> 
+<%
+=end%>
+<br/>

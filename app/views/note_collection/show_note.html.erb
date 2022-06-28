@@ -1,0 +1,84 @@
+<div class="container">
+	<div class="container row">
+		<div class="col-md-2">
+      <%= link_to (render 'renders/button_back') , back_show_currency_path(@notes[0].currency_id), class:"btn btn-secondary btn-sm", style:"float:left" %>
+      <h2>BANKNOTY</h2>
+    </div>
+    <div class="col-md-8">
+      <%= render 'renders/show_flag_country' %>
+    </div>
+    <div class="col-md-2">
+    </div>
+  </div>
+</div>
+
+<div>
+  <%= paginate @notes, theme: 'bootstrap4' %>
+</div>
+<div class="container row" style="text-align: center ">
+    <% @notes.each do |note| %> 
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 primary-container" >
+            <div class="image-out-container" style="padding: 0;" >
+                <div class="row image-container" >
+                    <div class="item"  >
+<!--                      <img class="img-responsive image-collection_size" src=<%#= note.avers_path %>, alt = <%#= note.avers_path %>>-->
+                      <% if (note.avers_path.length > 200) %>
+                        <%= link_to (image_tag(note.avers_path, :alt => "AVERSE", class:"img-responsive image-collection_size")), show_note_user_path(note),
+                                    {'data-toggle' => "modal", 'data-target' => "#" + "NC-A"+ note.id.to_s} %>
+                        <div class="modal fade" id=<%= "NC-A" + note.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
+                          <%= render 'note_modal', image: note.avers_path, note: note %>
+                        </div>
+                      <% else %>
+                        <%#= note.avers_path %>
+                        AVERS
+                      <% end %>
+                    </div >
+                    <div class="item">
+                      <% if (note.reverse_path.length > 200) %>
+                        <%= link_to (image_tag(note.reverse_path, :alt => "REVERSE", class:"img-responsive image-collection_size")), show_note_user_path(note),
+                                    {'data-toggle' => "modal", 'data-target' => "#" + "NC-R"+ note.id.to_s} %>
+                        <div class="modal fade" id=<%= "NC-R" + note.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
+                          <%= render 'note_modal', image: note.reverse_path, note: note %>
+                        </div>
+                      <% else %>
+                        <%#= note.reverse_path %>
+                        REVERS
+                      <% end %>
+<!--                        <img class="img-responsive image-collection_size" src=<%#= note.reverse_path %>, alt = <%#= note.reverse_path %>>-->
+                    </div>
+                    <div class="item-collection-info">
+                      <%= t('activerecord.attributes.note.note_date') + ": "  + note.note_date.to_s %><br/>
+                      <% if (note.denomination != nil) %>
+                        <%= t('activerecord.attributes.note.denomination') + ": " + number_with_delimiter(note.denomination, delimiter: " ") %><br/>
+                      <% end %>
+                      <%= t('currency') + ": " + note.name_currency.to_s %><br/>
+                      <% if (note.note_width != nil && note.note_height != nil) %>
+                          <strong><%= t('dimension') + ": " %></strong>
+                          <%= note.note_width.to_s + ' x ' + note.note_height.to_s + ' mm' %>                      
+                      <% end %>
+                      <% if user_signed_in? && current_user.role == 'admin' %>
+                        <strong style="background: orange">Visible: </strong><%= note.visible %>
+                      <% end %>
+                        <div class="btn-image-collection" >
+                          <%= link_to (render 'renders/button_show'), show_note_user_path(note),
+                                      {class:"btn btn-outline-info btn-sm", style:"float:left", 'data-toggle' => "modal", 'data-target' => "#" + "NC"+ note.id.to_s}%>
+                          <div class="modal fade" id=<%= "NC" + note.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel">
+                            <%= render 'note_future/note_future_modal', note: note %>
+                          </div>
+                        </div>
+                    </div><br/>                    
+                </div>     
+                
+            </div>
+        </div>
+    <% end %>    
+</div>
+<div>
+  <%= paginate @notes, theme: 'bootstrap4' %>
+</div>
+
+<div class="container">
+
+  <%= link_to (render 'renders/button_back') , back_show_currency_path(@notes[0].currency_id), class:"btn btn-secondary btn-sm", style:"float:left" %>                        
+<br/>
+</div>

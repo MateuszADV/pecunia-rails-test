@@ -1,0 +1,67 @@
+<!--<p id="notice"><%#= notice %></p>-->
+
+<!--<p>-->
+<!--  <strong>Country:</strong>-->
+  <%#= @currency_unit.country_id %>
+<!--</p>-->
+<div class="jumbotron" style="padding-bottom: 10px">
+  <%= render 'flag_country', currency_unit: @currency_unit %>
+  <h1 class="display-4">Currency Unit</h1>
+  <div>
+    <div style="float: left; margin-right: 30px; margin-bottom: 30px">
+      <p>
+        <strong>Continent:</strong>
+        <%= @currency_unit.country %>
+      </p>
+      <p>
+        <strong>Country:</strong>
+        <%= @currency_unit.country.country_en %>
+      </p>
+
+      <p>
+        <strong>Unit name en:</strong>
+        <%= @currency_unit.unit_name_en %>
+      </p>
+
+      <p>
+        <strong>Unit name pl:</strong>
+        <%= @currency_unit.unit_name_pl %>
+      </p>
+    </div>
+    <div>
+      <p>
+        <strong>Cod:</strong>
+        <%= @currency_unit.cod %>
+      </p>
+
+      <p>
+        <strong>Unit:</strong>
+        <%= @currency_unit.unit %>
+      </p>
+
+      <p>
+        <strong>Unit format:</strong>
+        <%= @currency_unit.unit_format %>
+      </p>
+
+      <p>
+        <strong>Status:</strong>
+        <%= @currency_unit.status %>
+      </p>
+    </div>
+
+  </div>
+  <div style="clear: both">
+    <p>
+      <strong>Description:</strong>
+      <%= @currency_unit.description %>
+    </p>
+  </div>
+  <hr class="my-4">
+  <%= link_to render('renders/button_edit'), edit_currency_unit_path(@currency_unit), class: "btn btn-primary btn-sm" %>
+  <%= link_to render('renders/button_back'), currency_units_path, class: "btn btn-secondary btn-sm" %>
+</div>
+
+
+
+

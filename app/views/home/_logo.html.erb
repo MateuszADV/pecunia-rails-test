@@ -1,0 +1,47 @@
+<% @root_path = Rails.root.join('app', 'assets', 'images','flags') %>
+<div class="container row">
+	<div class="logo-center col-md-2">
+		<%= image_tag("header/logo.png", :alt => "rss feed" , :size => "100x100", class:"rounded-circle")%>
+		<br/>
+	</div>
+	<div class="logo-center col-md-7">
+	    <h1>PECUNIA <small>BANKNOTES OF WORLD</small></h1>
+    </div>
+	<div class="logo-center col-md-2">
+		<%= image_tag("header/logo.png", :alt => "rss feed" , :size => "100x100", class:"rounded-circle") %>
+	</div>
+	<div class=" col-md-1">
+		<div style="font-size:10px">
+			<div style="padding:2px">  	
+				<% if (File.exist?(@root_path + 'Poland.png')) %>
+					<div style="padding:0px">
+						<%= link_to (image_tag("flags/" + "Poland.png", :alt => "polish", style:"height:15px" )), url_for(locale: :pl) %>
+					</div>
+				<% else %>
+					<div class="country-flag">
+						<%= image_tag("flags/test.png", :alt => "rss feed" , class:"size-flag") %>
+					</div>
+				<% end %>
+			</div> 
+
+ <%#= link_to 'Polish', url_for(locale: :pl) %>
+
+			<div style="padding:2px">  	
+				<% if (File.exist?(@root_path + 'England.png')) %>
+					<div style="padding:0px">
+						<%= link_to (image_tag("flags/" + "England.png", :alt => "english", style:"height:15px" )), url_for(locale: :en) %>
+					</div>
+				<% else %>
+					<div class="country-flag">
+						<%= image_tag("flags/test.png", :alt => "rss feed" , class:"size-flag") %>
+					</div>
+				<% end %>
+			</div> 
+
+ <%#= link_to 'English', url_for(locale: :en) %>
+
+			
+		</div>
+	</div>
+
+</div>

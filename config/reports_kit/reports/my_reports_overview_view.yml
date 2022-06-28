@@ -1,0 +1,14 @@
+data_method: MyDataMethodsViewTest.view_test
+chart:
+  options:
+    scales:
+      x:
+        scaleLabel:
+          display: true
+          labelString: Creation date
+#        stacked: true
+      y:
+        scaleLabel:
+          display: true
+          labelString: Posts
+#        stacked: true

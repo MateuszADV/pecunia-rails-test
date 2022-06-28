@@ -1,0 +1,31 @@
+<% @root_path = Rails.root.join('app', 'assets', 'images','continents') %>
+
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header" style="text-align: center; justify-content: center">
+      <h3 class="modal-title" id="staticBackdropLabel">
+        CONTINENT<br/>
+        <%= continent.name_pl %>
+      </h3>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body" style="background: #a7a8a8">
+      <p><b>Continent Code: </b><%= continent.continent_code %></p>
+      <p><b>Name Pl: </b><%= continent.name_pl %></p>
+      <p><b>Name En: </b><%= continent.name_en %></p>
+      <p><b>File Name: </b><%= continent.file_name %></p>
+      <p style="text-align: center">
+        <% if (File.exist?(@root_path + (continent.file_name))) %>
+          <%= (image_tag("continents/" + continent.file_name, :alt => "Kontynent", style:"width:80%;height:80%"))   %>
+        <% else %>
+          <%= image_tag("flags/test.png", :alt => "rss feed" ) %>
+        <% end %>
+      </p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal"><%= render ('renders/button_close') %></button>
+    </div>
+  </div>
+</div>

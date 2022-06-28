@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+  <div class="container row">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8">
+			<%= render 'renders/show_flag_country' %>
+		</div>			
+		<div class="col-md-2">
+		</div>
+  </div>
+
+  <%= render 'note_collection/show_note' %>
+  <div>
+    <% if user_signed_in? && current_user.role == 'admin' %>
+      <div style="float: left">
+          <%= link_to (render 'renders/button_back'), note_show_currency_path(@note.currency_id), class:"btn btn-secondary btn-sm" %>
+          <%= link_to (render 'renders/button_edit'), edit_note_path(@note), class:"btn btn-primary btn-sm" %> 
+      </div>
+    <% end %>
+    <% if @note.status == "KOLEKCJA" %>
+      <div style="float:right">
+            <%= link_to (render 'renders/button_back'), show_note_path(@note.currency_id), class:"btn btn-outline-info btn-sm" %> 
+      </div>
+    <% end %>
+    <% if @note.status == "FOR SELL" %>
+      <div style="float:right">
+            <%= link_to (render 'renders/button_back') + " Back To List", note_for_sell_list_path, class:"btn btn-outline-info btn-sm" %> 
+      </div>
+    <% end %>
+  </div>
+</div>

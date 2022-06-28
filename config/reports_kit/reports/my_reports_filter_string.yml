@@ -1,0 +1,12 @@
+measure:
+  key: country
+  name: Find country Poland
+filters:
+- key: country_en
+  criteria:
+    operator: contains
+    value: P
+dimensions:
+- country_en
+- continent
+#- exists

@@ -1,0 +1,13 @@
+<div  class="card text-center text-white bg-primary">
+  <div class="header">
+    <h3><%= t('new_currency') %> <%= @currency.pattern %></h3>
+  </div>
+</div>
+
+<%= render 'form', currency: @currency %>
+
+<%
+=begin%>
+ <%= link_to 'Back', country_path(@currency.country_id), class:"btn btn-dark" %> 
+<%
+=end%>

@@ -1,0 +1,77 @@
+<%= form_with(model: customer) do |form| %>
+  <% if customer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+
+      <ul>
+        <% customer.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="col-4 field">
+    <%= form.label :uuid %>
+    <%= form.text_field :uuid, :readonly => true, class:"form-control form-control-sm" %>
+  </div>
+
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="col field">
+      <%= form.label :name %>
+      <%= form.text_field :name, class:"form-control form-control-sm" %>
+    </div>
+
+    <div class="col field">
+      <%= form.label :lastname %>
+      <%= form.text_field :lastname, class:"form-control form-control-sm" %>
+    </div>
+
+    <div class="col field">
+      <%= form.label :active %>
+      <%= form.check_box :active %>
+    </div>
+
+    <div class="col field">
+      <%= form.label :city %>
+      <%= form.text_field :city, class:"form-control form-control-sm" %>
+    </div>
+
+    <div class="col field">
+      <%= form.label :zip_code %>
+      <%= form.text_field :zip_code, class:"form-control form-control-sm" %>
+    </div>
+
+    <div class="col field">
+      <%= form.label :street %>
+      <%= form.text_field :street, class:"form-control form-control-sm" %>
+    </div>
+
+    <div class="col field">
+      <%= form.label :number %>
+      <%= form.text_field :number, class:"form-control form-control-sm" %>
+    </div>
+
+    <div class="col field">
+      <%= form.label :email %>
+      <%= form.text_field :email, class:"form-control form-control-sm" %>
+    </div>
+
+    <div class="col field">
+      <%= form.label :nick %>
+      <%= form.text_field :nick, class:"form-control form-control-sm" %>
+    </div>
+
+    <div class="col field">
+      <%= form.label :phone %>
+      <%= form.text_field :phone, class:"form-control form-control-sm" %>
+    </div>
+
+    <div class="col col-lg-9 field">
+      <%= form.label :description %>
+      <%= form.text_area :description, class:"form-control form-control-sm" %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= form.submit class:"btn btn-sm btn-primary"  %>
+  </div>
+<% end %>

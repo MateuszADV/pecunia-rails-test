@@ -1,0 +1,144 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="padding-block: 0;">
+	<%= link_to 'Pecunia', root_path, class:"navbar-brand" %>
+
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    <% if user_signed_in? && current_user.role == 'admin' %>
+      <li>          
+            <div class="dropdown nav-link">
+              <button class="dropbtn dropdown-toggle"><%= t 'menu.country.country' %></button>
+                <div class="dropdown-content">
+                  <%= link_to t('menu.country.add_country'), new_country_path, class:"nav-link" %>
+                  <%= link_to t('menu.country.countries'), countries_path, class:"nav-link" %>             
+                </div>
+            </div>        
+      </li>
+    <% end %> 
+ 
+      <li> 
+        <% if user_signed_in? %>
+          <div class="dropdown nav-link ">
+            <button class="dropbtn dropdown-toggle"><%= t 'menu.note.note' %></button>
+            <div class="dropdown-content ">
+              <% if user_signed_in? && current_user.role == 'admin' %>
+                <%= link_to t('menu.note.add_note'), notes_path, class:"nav-link" %>
+                <%= link_to t('menu.note.new_notes'), note_new_index_path, class:"nav-link" %>
+                <%= link_to t('menu.note.note_sold'), note_sold_index_path, class:'nav-link' %>
+                <%= link_to t('menu.note.note_for_sell_list'), note_for_sell_list_path, class:'nav-link' %>
+              <% end %>
+              <% if user_signed_in? %>
+                  <%= link_to t('menu.note.note_for_sell'), note_for_sell_index_path, class:"nav-link" %>
+                  <%= link_to t('menu.note.collection'), note_collection_index_path, class:"nav-link" %>
+              <% end %>
+              
+            </div>
+          </div>
+        <% end %>
+      </li>
+
+      <li class="nav-item"> 
+        <% if user_signed_in? %>
+          <div class="dropdown nav-link ">
+            <button class="dropbtn dropdown-toggle"><%= t 'menu.coin.coin' %></button>
+              <div class="dropdown-content">
+              <% if user_signed_in? && current_user.role == 'admin' %>
+                <%= link_to t('menu.coin.add_coin'), coins_path, class:"nav-link" %> 
+                <%= link_to t('menu.coin.new_coins'), coin_new_index_path, class:"nav-link" %>            
+              <% end %>
+              <% if user_signed_in? %>
+                 <%= link_to t('menu.coin.coin_for_sell'), coin_for_sell_index_path, class:"nav-link" %>
+                 <%= link_to t('menu.coin.collection'), coin_collection_index_path, class:"nav-link" %>
+              <% end %>
+                
+            </div>
+          </div>
+        <% end %>
+      </li>
+       <li class="nav-item"> 
+        <% if user_signed_in? %>
+          <div class="dropdown nav-link ">
+            <button class="dropbtn dropdown-toggle"><%= t 'menu.bond.bond' %></button>
+              <div class="dropdown-content">
+              <% if user_signed_in? && current_user.role == 'admin' %>
+                <%= link_to t('menu.bond.add_bond'), bonds_path, class:"nav-link" %>             
+              <% end %>
+              <% if user_signed_in? %>
+                <%= link_to t('menu.bond.collection'), bond_collection_index_path, class:"nav-link" %> 
+              <% end %>                
+            </div>
+          </div>
+        <% end %>
+      </li>
+      <% if user_signed_in? && (current_user.role == 'admin' || current_user.role == 's_user') %>
+        <li>          
+              <div class="dropdown nav-link">
+                <button class="dropbtn dropdown-toggle"><%= t 'menu.future.future' %></button>
+                  <div class="dropdown-content">
+                    <%= link_to t('menu.future.note_future'), note_future_index_path, class:"nav-link" %>
+                    <%= link_to t('menu.future.note_future_list'), note_future_list_path, class:'nav-link' %>             
+                  </div>
+              </div>        
+        </li>
+      <% end %>
+      <% if user_signed_in? && current_user.role == 'admin' %>
+        <li>
+          <div class="dropdown nav-link">
+            <button class="dropbtn dropdown-toggle">Customer</button>
+            <div class="dropdown-content">
+              <%= link_to "Customer", customers_path, class:"nav-link" %>
+              <%#= link_to t('menu.future.note_future_list'), note_future_list_path, class:'nav-link' %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+        <li class="nav-item"> 
+          <% if user_signed_in? && current_user.role == 'admin' %>
+            <div class="dropdown nav-link ">
+              <button class="dropbtn dropdown-toggle"><%= t 'menu.set.set' %></button>
+                <div class="dropdown-content">
+                  <%= link_to t('menu.set.reports'), reports_path, class:"nav-link" %>  
+                  <%= link_to "Continents", continents_path, class:"nav-link" %>
+                  <%= link_to (render 'renders/icon_chart') + t('menu.set.chart'), reports_chart_path, class:"nav-link" %>
+                  <%= link_to (render 'renders/icon_chart') + t('menu.set.set_chart'), charts_path, class:"nav-link" %>
+                  <hr class="my-1">
+                  <%= link_to t('menu.set.pattern'), patterns_path, class:"nav-link" %>
+                  <%= link_to t('menu.set.bought'), boughts_path, class:"nav-link" %>
+                  <%= link_to t('menu.set.signature_cod'), signatures_path, class:"nav-link" %>
+                  <%= link_to "Settings", settings_path, class:"nav-link" %>
+                  <%= link_to "Currency Unit", currency_units_path, class:"nav-link" %>
+                  <%= link_to "GoldApi", goldapi_index_path, class:"nav-link" %>
+                </div>
+            </div>
+          <% end %>
+        </li>      
+      <li class="nav-item">
+      	<%= link_to 'About PECUNIA', home_about_path, class:"nav-link" %>
+      </li>      
+    </ul>
+
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 center-button ">
+        <% if user_signed_in? %>
+            <li class= "navbar-brand">
+              <%= current_user.role %>
+            </li>        
+              <li class="nav-item">
+                <%= link_to current_user.email, edit_user_registration_path, class:"nav-link" %>
+              </li>            
+            <li class="nav-item">
+              <%= button_to "Logout", destroy_user_session_path, method: :delete, class:"btn btn-sm btn-outline-secondary"  %>
+            </li>
+        <% else %>
+          <li class="nav-item"> 
+            <%= link_to "Sign Up", new_user_registration_path, class:"nav-link" %>
+          </li> 
+          <li class="nav-item"> 
+            <%= link_to "Sign In", new_user_session_path, class:"nav-link" %>
+          </li> 
+        <% end %>
+      </ul> 
+  </div>
+</nav>

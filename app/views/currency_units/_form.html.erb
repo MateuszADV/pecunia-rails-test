@@ -1,0 +1,70 @@
+<%= form_with(model: currency_unit) do |form| %>
+  <% if currency_unit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(currency_unit.errors.count, "error") %> prohibited this currency_unit from being saved:</h2>
+
+      <ul>
+        <% currency_unit.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="col-4 field">
+    <%#= form.label :country_id %>
+    <%= form.label :Country%>
+    <% form.text_field :country_id  %>
+    <%= form.select :country_id, @countries.all.map { |b| [b.country_en, b.id]}, {:include => ""}, class:"form-control  form-control-sm" %>
+
+  </div>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+    <div class="field">
+      <div class="col field">
+        <%= form.label :unit_name_en %>
+        <%= form.text_field :unit_name_en, class:"form-control form-control-sm"%>
+      </div>
+
+      <div class=" col field">
+        <%= form.label :unit_name_pl %>
+        <%= form.text_field :unit_name_pl, class:"form-control form-control-sm" %>
+      </div>
+      <div class="col field">
+        <%= form.label :status %>
+        <%#= form.text_field :status %>
+        <%= form.select :status, (@status_units.collect { |m| [m[0], m[0]] }), class:"form-control form-control-sm" %>
+        <% @currency_unit.errors.full_messages_for(:status).each do |message| %>
+          <div  class="alert alert-danger" role="alert"><%= message %></div>
+        <% end %>
+      </div>
+    </div>
+    <div class="field">
+      <div class="col field">
+        <%= form.label :cod %>
+        <%= form.text_field :cod, class:"form-control form-control-sm"  %>
+        <% @currency_unit.errors.full_messages_for(:cod).each do |message| %>
+          <div  class="alert alert-danger alert-sm" role="alert"><%= message %></div>
+        <% end %>
+      </div>
+
+      <div class="col field">
+        <%= form.label :unit %>
+        <%= form.text_field :unit, class:"form-control form-control-sm"  %>
+      </div>
+
+      <div class="col field">
+        <%= form.label :unit_format %>
+        <%= form.text_field :unit_format, class:"form-control form-control-sm"  %>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="col-6 field">
+    <%= form.label :description %>
+    <%= form.text_area :description, class:"form-control form-control-sm" %>
+  </div>
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary btn-sm" %>
+  </div>
+<% end %>

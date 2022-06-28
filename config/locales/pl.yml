@@ -1,0 +1,335 @@
+pl:
+  menu:
+    country:
+      country: "Państwa"
+      add_country: "Dodaj Państwo"
+      countries: "Państwa"
+    note:
+      note: "Banknoty"
+      add_note: "Dodaj Banknot"
+      new_notes: "Nowe Banknoty (Do Weryfikacji)"
+      note_sold: "Sprzedane Banknoty"
+      note_for_sell: "Banknoty Na Sprzedaż"
+      note_for_sell_list: "Lista Banknotów Na Sprzedaż"
+      collection: "Kolekcja"
+    coin:
+      coin: "Monety"
+      add_coin: "Dodaj Monetę"
+      new_coins: "Nowa Moneta (Do Weryfikacji)"
+      # coin_sold: "Sprzedane Monety"
+      coin_for_sell: "Monety Na Sprzedaż"
+      collection: "Kolekcja"
+    bond:
+      bond: "Obligacje"
+      add_bond: "Dodaj Obligację"
+      collection: "Kolekcja"
+    future:
+      future: "Future"
+      note_future: "Przyszłe Banknoty"
+      note_future_list: "Lista Przyszłych Banknotów"
+    set:
+      set: "Ustawienia"
+      reports: "Raporty"
+      chart: "Wykres"
+      set_chart: "Wykres Ustawienia"
+      pattern: "Rodzaj Waluty"
+      bought: "Miejsce Zakupu"
+      signature_cod: "Kody Sygnatur"
+  helpers:
+    submit:
+      country:
+        create: "Dodaj Państwo"
+        update: "Zapisz zmiany"
+      note:
+        create: "Dodaj Banknot"
+        update: "Zapisz zmiany"
+      coin:
+        create: "Dodaj Monetę"
+        update: "Zapisz zmiany"
+      bond:
+        create: "Dodaj Obligację"
+        update: "Zapisz zmiany"
+      bought:
+        create: "Nowy Sprzedawca"
+        update: "Zapisz Zmiany"
+      signature: 
+        create: "Dodaj Sygnaturę"
+        update: "Edytuj Sygnaturę"
+      customer:
+        create: "Dodaj Klienta"
+        update: "Edytuj Dane Klienta"
+      setting:
+        create: "Dodaj Nowe Ustawienia"
+        update: "Edytuj Ustawienia"
+      report:
+        create: "Dodaj Raport"
+        update: "Aktualizuj Raport"
+      chart:
+        create: "Dodaj nowy rodzaj wykresu"
+        update: "Edytuj Rodzaj wykresu"
+      pattern:
+        create: "Dodaj Nowy Rodzaj"
+        update: "Aktualizuj Rodzaj"
+  activerecord:
+    attributes:
+      country:
+        continent: "Komtynent"
+        country_en: "Państwo (en)"
+        country_pl: "Państwo (pl)"
+        capital_city: "Stolica"
+        alfa_2: "Alfa 2"
+        alfa_3: "Alfa 3"
+        numeric_code: "Kod numeryczny"
+        iso_code: "Kod Iso"
+        exists: "Istnieje"
+        description: "Opis"
+      note:
+        denomination: "Nominał"
+        name_currency: "Nazwa Waluty"
+        note_date: "Data"
+        signature_code: "Sygnatura"
+        price_buy: "Cena Kupna"
+        price_sell: "Sprzedaż"
+        quantity: "Ilość"
+        quality: "Stan"
+        status: "Status"
+        description: "Opis"
+        img_type: "Typ obrazka"
+        series: "Seria"
+        making: "Materiał"
+        date_buy_note: "Data Zakupu Banknotu"
+        bought: "Miejsce Zakupu"
+        status_sell: "Status Sprzedaży"
+        avers_path: "Avers Link"
+        reverse_path: "Reverse Link"
+        note_width: "Szerokość"
+        note_height: "Wysokość"
+      coin:
+        denomination: "Nominał"
+        name_currency: "Nazwa Waluty"
+        coin_date: "Data"
+        signature_code: "Sygnatura"
+        price_buy: "Cena Kupna"
+        price_sell: "Sprzedaż"
+        diameter: "Średnica"
+        thickness: "Grubość"
+        weight: "Waga"
+        composition: "Skład"
+        quantity: "Ilość"
+        quality: "Stan"
+        status: "Status"
+        description: "Opis"
+        img_type: "Typ obrazka"
+        series: "Seria"
+        making: "Materiał"
+        date_buy: "Data Zakupu Monety"
+        bought: "Kupiony"
+        status_sell: "Status Sprzedaży"
+        avers_path: "Avers Link"
+        reverse_path: "Reverse Link"
+      currency:
+        cod: "Kod"
+        pattern: "Rodzaj"
+        currency: "Waluta"
+        change: "Drobne"
+        active: "Aktywna"
+        data_exchange: "Data Wymiany"
+        currency_series: "Okres Wystepowania"
+        currency_from: "Poprzednia Waluta"
+        converter: "Przelicznik"
+        description: "Opis"
+      bought:
+        name: "Sprzedawca"
+        full_name: "Pełna Nazwa Sprzedawcy"
+        description: "Informacje o Sprzedawcy"
+      signature:
+        signature_cod: "Kod Sygnatury"
+        short_name: "Nazwa"
+        description: "Opis"
+      customer:
+        active: "Aktywny"
+        name: "Imię"
+        lastname: "Nazwisko"
+        city: "Miejscowość"
+        zip_code: "Kod"
+        street: "Ulica"
+        number: "Numer"
+        email: "Email"
+        nick: "Nick"
+        phone: "Telefon"
+        description: "Opis"
+      order:
+        order_number: "Numer Zamówienia"
+        order_date: "Przyjęcie Zamówienia"
+        order_status: "Status Zamówienia"
+        order_date_send: "Data Wysłania"
+        tracking_number: "Numer Przesyłki"
+        shipment_type: "Rodzaj Wysyłki"
+        shipment_cost: "Koszty Wysyłki"
+        description: "Opis"
+      setting:
+        web: "Strona"
+        name: "Nazwa Ustawień"
+        value: "Wartość"
+        description: "Opis"
+      report:
+        report: "Raport"
+        string: "String"
+        name: "Nazwa Raportu"
+        description: "Opis"
+      chart:
+        name: "Nazwa Wykresu"
+        description: "Opis"
+      pattern:
+        name_en: "Nazwa Angielska"
+        name_pl: "Nazwa Polska"
+        description: "Opis"
+    errors:
+      models:
+        note:
+          attributes:
+            making:
+              blank: " - Pole nie może być puste!"
+            status: 
+              blank: " - Pole nie może być puste!"    
+            img_type:
+              blank: " - Pole nie może być puste!"
+            price_buy:
+              blank: " - Pole nie może być puste!"
+              not_a_number: " - Podana wartość nie jest liczbą"
+            price_sell:
+              blank: " - Pole nie może być puste!"
+              not_a_number: " - Podana wartość nie jest liczbą"
+            note_width:
+              not_a_number: " - Podana wartość nie jest liczbą"
+            note_height:
+              not_a_number: " - Podana wartość nie jest liczbą"
+        coin:
+          attributes:
+            status: 
+              blank: " - Pole nie może być puste!"    
+            img_type:
+              blank: " - Pole nie może być puste!"
+            diameter:
+              blank: " - Pole nie może być puste!"
+              not_a_number: " - Podana wartość nie jest liczbą"
+            thickness:
+              blank: " - Pole nie może być puste!"
+              not_a_number: " - Podana wartość nie jest liczbą"
+            weight:
+              blank: " - Pole nie może być puste!"
+              not_a_number: " - Podana wartość nie jest liczbą"
+            price_buy:
+              blank: " - Pole nie może być puste!"
+              not_a_number: " - Podana wartość nie jest liczbą"
+            price_sell:
+              blank: " - Pole nie może być puste!"
+              not_a_number: " - Podana wartość nie jest liczbą"
+        bond:
+          atributes:
+            width:
+              not_a_number: " - Podana wartość nie jest liczbą"
+            height:
+              not_a_number: " - Podana wartość nie jest liczbą"
+        signature:
+          attributes:
+            signature_cod:
+              not_a_number: " - Podana wartość nie jest liczbą"
+        chart:
+          attributes:
+            name:
+              blank: " - Pole nie może być puste!"
+        order_item:
+          attributes:
+            quantity:
+              blank: " - Pole nie może być puste!"
+              exclusion: " - Musi być wieksze od '0'"
+            final_price:
+              blank: " - Pole nie może być puste!"
+              not_a_number: " - Podana wartość nie jest liczbą"
+              greater_than_or_equal_to: " - Cena musi być równa lub większa od '0'"
+  tables:
+    country:
+      headers:
+        continent: "Kontynent"
+        country_en: "Państwo (en)"
+        country_pl: "Państwo (pl)"
+        capital_city: "Stolica"
+        alfa_2: "Alfa 2"
+        alfa_3: "Alfa 3"
+        numeric_code: "Kod numeryczny"
+        iso_code: "Kod Iso"
+        exists: "Istnieje"
+        flag: "Flaga"
+  buttons:
+    back: "Powrót"
+    show: "Wyświetl"
+    edit: "Edytuj"
+    delete: "Usuń"
+    search: "Szukaj"
+    close: "Zamknij"
+
+  date:
+    month_names: [~, Styczeń, Luty, Morzec, Kwiecień, Maj, Czerwiec, Lipiec, Sierpień, Wrzesień, Październik, Listopad, Grudzień]
+    order:
+      - :year
+      - :month
+      - :day
+  shipping_cost: "Koszty Dostawy"
+  priority_registered_letter_pl : "List Polecony Priorytet (Polska)"
+  possible_personal_collection: "Możliwy odbiór osobisty"
+  pieces: "szt"
+  note_future_list: "Lista Zamówionych Banknotów"
+  list_banknotes_for_sale: "Lista banknotów na sprzedaż"
+  list_countries_note_for_sell: "Lista państw (banknoty na sprzedaż)"
+  country: "Państwo"
+  note: "Banknot"
+  year: 'Rok'
+  price: "Cena"
+  to_list: " Do Listy"
+  dimension: "Wymiar"
+  currency: "Waluta"
+
+
+  # Add, Update, Delete
+
+  add_new_country: "Dodaj Nowe Państwo"
+  edit_country: "Eycja Państwa"
+
+  new_seller: "Nowy Sprzedawca"
+  edit_seller: "Edycja Sprzedawcy"
+
+  new_customer: "Nowy Klient"
+  edit_customer: "Educja danych Klienta"
+  show_customer: "Dane Klienta"
+  list_customers: "Lista Klientów"
+
+  note_success_update: "Udana aktualizacja banknotu."
+  note_success_create: "Dodano banknot."
+
+  currency_create: "Pmyślnie dodano nową walutę."
+  currency_update: "Pomyślnie zaktualizowano walutę."
+  currency_delete: "Waluta została pomyślnie usunięta."
+  currency_not_empty: "Waluta nie jest pusta (zawiera %{items} elementu do usunięcia)."
+
+  signature_success_create: "Pomyślne dodano nową sygnaturę."
+  signature_success_update: "Pomyślnie zaktulizowano sygnaturę."
+  signature_success_delete: "Signatura została pomyslnie usunięta."
+
+  # **************CURRENCY*****************
+  new_currency: "Nowa Waluta"
+  edit_currency: "Edycja Waluty"
+
+  # *************SIGNATURES****************
+  signature_codes: "Kody Sygnatur"
+  description_of_signature: "Opis Kodów Sygnatur"
+
+  #*****************CHART***********************
+  new_type_chart: "Nowy Rodzaj Wykresu"
+  edit_type_chart: "Edytuj Rodzaj Wykresu"
+  type_charts: "Rodzaje wykresów"
+
+  #  ***************ORDRE**********************
+
+
+  # *****************END ORDER ***************

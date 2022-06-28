@@ -1,0 +1,44 @@
+<h1 class="display-4">
+    <%= @country.continent %> : 
+    <%= @country.country_en %> 
+
+    <% @root_path = Rails.root.join('app', 'assets', 'images','flags') %> 
+
+    <% if (File.exist?(@root_path + (@country.country_en + '.png'))) %>
+      <%= image_tag("flags/" + @country.country_en + ".png", :alt => "rss feed" , style:"width:15%;height:15%;") %>
+    <% else %>
+      <%= image_tag("flags/test.png", :alt => "rss feed" , style:"width:10%;height:10%;") %>
+    <% end %>
+
+  </h1>
+  <div class="conainer">
+    <p class="m-0">
+      Id: <%= @country.id %><br/>
+      <strong>Capital city:</strong>
+      <%= @country.capital_city %>
+    </p>
+    <p class="m-0">
+      <strong>Alfa 2:</strong>
+      <%= @country.alfa_2 %>
+       |
+      <strong>Alfa 3:</strong>
+      <%= @country.alfa_3 %>
+    </p>
+    <p class="m-0">
+      <strong>Numeric code:</strong>
+      <%= @country.numeric_code %>
+       |
+      <strong>Iso code:</strong>
+      <%= @country.iso_code %>
+       |
+      <strong>Exists:</strong>
+      <%= @country.exists %>
+    </p>
+  </div>
+
+ <%#= link_to 'Edit', edit_country_path(@country), class:"btn btn-secondary" %>
+  <%#= link_to 'Back', countries_path, class:"btn btn-dark" %>
+
+<div class="m-20">
+  <%= link_to 'Add Currency ' + @pattern , new_country_currency_path(@country, 'pattern' => @pattern), class:"btn btn-primary btn-sm" %>
+</div>

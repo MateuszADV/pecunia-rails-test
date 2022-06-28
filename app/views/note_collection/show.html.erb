@@ -1,0 +1,21 @@
+<%= link_to (render 'renders/button_back'), note_collection_index_path, class:"btn btn-secondary btn-sm" %>
+<h2>PAŃSTWA</h2>
+<% @root_path = Rails.root.join('app', 'assets', 'images','flags') %>
+<div class="container background-flags ">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-6">
+  	<% @countries.each do |country| %>
+  	<div class="col position-flag" >  	
+    	<%= link_to country.country_en, show_currency_path(country) %>
+  		<% if (File.exist?(@root_path + (country.country_en + '.png'))) %>
+		  <div class="country-flag">
+        	<%= link_to (image_tag("flags/" + country.country_en + ".png", :alt => country.country_en , class:"size-flag")), show_currency_path(country) %>
+		  </div>
+        <% else %>
+			<div class="country-flag">
+				<%= image_tag("flags/test.png", :alt => "rss feed" , class:"size-flag") %>
+			</div>
+    	<% end %>
+  	</div> 
+  	<% end %>
+  </div>
+</div>

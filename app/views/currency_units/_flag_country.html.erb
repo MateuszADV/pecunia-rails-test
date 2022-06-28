@@ -1,0 +1,13 @@
+<% @root_path = Rails.root.join('app', 'assets', 'images','flags') %>
+<div class="container flag-show" >
+  <%#= @country.country_en %>
+  <% if (File.exist?(@root_path + (currency_unit.country.country_en + '.png'))) %>
+    <div class="container" style="width: 25%; min-width: 140px">
+      <%= image_tag("flags/" + currency_unit.country.country_en + ".png", :alt => currency_unit.country.country_en , class:"size-flag-container") %>
+    </div>
+  <% else %>
+    <div class="container country-flag">
+      <%= image_tag("flags/test.png", :alt => "rss feed" , class:"size-flag-container") %>
+    </div>
+  <% end %>
+</div>

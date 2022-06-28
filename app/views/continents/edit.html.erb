@@ -1,0 +1,6 @@
+<h1>Editing Continent</h1>
+
+<%= render 'form', continent: @continent %>
+
+<%= link_to render('renders/button_show'), @continent, class: "btn btn-sm btn-info" %>
+<%= link_to render('renders/button_back'), continents_path, class: "btn btn-sm btn-secondary" %>

@@ -1,0 +1,42 @@
+<h1>KOLEKCJA OBLIGACJI</H1>
+<div class="container">
+    <%= link_to (render 'renders/button_back') , back_show_currency_bond_path(@bonds[0].currency_id), class:"btn btn-secondary btn-sm", style:"float:left" %>                        
+</div>
+
+<div class="container row" style="text-align: center ">
+    <% @bonds.each do |bond| %> 
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 primary-container">
+            <div class="image-out-container">
+                <div class="row image-container">
+                    <div class="item"  >
+                        <% if (bond.avers_path.length > 200) %>
+                            <img class="img-responsive image-collection_size"  src=<%= bond.avers_path %>, alt = <%= bond.avers_path %>>
+                        <% else %>
+                            <%= bond.avers_path %>          
+                        <% end %>
+                    </div >
+                    <div class="item">
+                        <% if (bond.reverse_path.length > 200) %>
+                            <img class="img-responsive image-collection_size" src=<%= bond.reverse_path %>, alt = <%= bond.reverse_path %>>
+                        <% else %>
+                            <%= bond.reverse_path %>
+                        <% end %>
+                    </div>
+                    <div class="item-collection-info">
+                      <%= "Rok: " + bond.bond_date.to_s %><br/>
+                      <%= "Nominał: " + bond.denomination.to_s %><br/>
+                      <%= "Waluta: " + bond.name_currency.to_s %>
+                      <%= "ID: " + bond.currency_id.to_s %>
+                        <div class="btn-image-collection" >
+                            <%= link_to (render 'renders/button_show'), show_bond_user_path(bond), class:"btn btn-outline-info btn-sm" %> 
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    <% end %>
+    <div class="container">
+        <%= link_to (render 'renders/button_back') , back_show_currency_bond_path(@bonds[0].currency_id), class:"btn btn-secondary btn-sm", style:"float:left" %>                        
+    </div>
+</div>

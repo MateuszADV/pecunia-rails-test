@@ -1,0 +1,73 @@
+<h3>BANKNOTY NA SPRZEDAŻ</h3>
+
+ <%#= render 'renders/collection_for_sell' %>
+
+<h4>Ilość banknotów: <%= @notes.size %></h4>
+  <% @notes.each do |note| %>
+    <div class="container row bg-sell" style="border-bottom: solid;border-color: darkgray;">      
+        <div class="page-header col-md-1" style="border-right: solid;border-color: darkgray;">
+            <B>Id: </B>	<%= note.id %>
+        </div>
+        <div class="col-md-3">	       
+        	<% if (note.avers_path.length > 200) %>
+            <%= link_to (image_tag(note.avers_path, :alt => "AVERSE" , style:"width:100%")), edit_note_path(note), {'data-toggle' => "modal", 'data-target' => "#" + "FS-A"+ note.id.to_s} %>
+              <div class="modal fade" id=<%= "FS-A" + note.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <%= render 'modal_for_sell', note: note, image: note.avers_path %>
+              </div>
+          <% else %>
+            <%= note.avers_path %>
+          <% end %> 
+              <hr class="my-2">
+        	<% if (note.reverse_path.length > 200) %>
+            <%= link_to (image_tag(note.reverse_path, :alt => "REVERSE" , style:"width:100%")), edit_note_path(note), {'data-toggle' => "modal", 'data-target' => "#" + "FS-R"+ note.id.to_s} %>
+              <div class="modal fade" id=<%= "FS-R" + note.id.to_s %> data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <%= render 'modal_for_sell', note: note, image: note.reverse_path %>
+              </div>
+          <% else %>
+            	<%= note.reverse_path %>
+          <% end %>  
+          <br/>
+
+          <%= render 'note_dimension', note: note %>
+
+        </div>
+      
+        <div class="page-header col-md-6" >
+
+          <%= render 'renders_item/denomination', item: note %>
+
+         <br/>
+          <b><%= t('activerecord.attributes.note.note_date') + ":" %></b> <%= note.note_date %><br/>
+          <B><%= t('activerecord.attributes.note.making') + ":" %></B> <%= note.making %><br/>
+          <B><%= t('activerecord.attributes.note.quality') + ":" %></B> <%= note.quality %><br/>
+          <B><%= t('activerecord.attributes.note.quantity') + ":" %></B> <%= note.quantity %> <%= note.unit_quantity %><br/>
+          <% if user_signed_in? && current_user.role == 'admin' %>
+            <b><%= t('activerecord.attributes.note.price_buy') + ":" %></b>
+              <% note.price_buy.to_s + "zł/szt" %>
+              <%= number_to_currency(note.price_buy, unit: "zł", separator: ".", delimiter: " ", precision: 0, strip_insignificant_zeros: true, format: "%n %u") %>              
+              <br/>
+          <% end %>
+            <%= render 'renders_item/price_sell', item: note %>
+            <br/>
+            <%= render "renders/shipping" %>
+            <b><%= t('activerecord.attributes.note.description') + ":" %></b><br/>
+            <% note.description %>
+            <%= text_area_tag(:ad, note.description, rows: 4, :readonly => true, class:"textarea-note-future")  %>
+
+        </div>
+
+        <% if user_signed_in? && current_user.role == 'admin' %>     
+          <div class="page-header col-md-2" style="border-left: solid;border-color: darkgray;">
+            <td><%= link_to (render 'renders/button_edit'), edit_note_path(note), class:"btn btn-primary btn-sm" %></td>
+            <div style="background: orange">
+              <strong>Visible: </strong>
+              <%= note.visible %>
+              <%= Time.now.utc.strftime("%H:%M:%S") %>
+            </div>
+          </div>
+
+        <% end %>
+      
+    </div>
+  <% end %>
+

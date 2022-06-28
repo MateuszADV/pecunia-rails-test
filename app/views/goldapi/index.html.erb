@@ -1,0 +1,130 @@
+<h1>Goldapi</h1>
+
+<% if @goldapi != nil %>
+  <p style="font-size: 14px; font-weight: bold">Today: <%= @stat_gold_api.today %> | Yesterday: <%= @stat_gold_api.yesterday %> |
+    <span class="<%= @stat_gold_api.this_month < 400 ? 'green' : 'red' %>">This Month: <%= @stat_gold_api.this_month %> </span> | Last Month: <%= @stat_gold_api.last_month %></p>
+  <% if (@goldapi_metal_rates[0].error_gold_api.code == 0) || (@goldapi_metal_rates[0].error_gold_api.code == 859)  %>
+    <h4><%= @goldapi_metal_rates[0].error_gold_api.error_message %></h4>
+  <% else %>
+    <% if @goldapi_metal_rates[0].error_gold_api.code == 200 %>
+      <table class="table table-sm table-striped table-bordered table-hover" style="font-size: small; background: darkgray">
+        <thead class="thead-dark">
+        <tr>
+          <th colspan="2">Time</th>
+          <th colspan="2"></th>
+<!--          <th>Metal</th>-->
+<!--          <th>Currency</th>-->
+<!--          <th>Exchange</th>-->
+<!--          <th>Symbol</th>-->
+<!--          <th colspan="2">Prev Close Price</th>-->
+          <th colspan="2">Price</th>
+<!--          <th>Open Price</th>-->
+<!--          <th>Low Price</th>-->
+<!--          <th>High Price</th>-->
+<!--          <th>Open Time</th>-->
+<!--          <th>Price</th>-->
+          <th colspan="2">Change</th>
+<!--          <th>Change %</th>-->
+<!--          <th>Ask</th>-->
+<!--          <th>Bid</th>-->
+          <th colspan="2"></th>
+        </tr>
+        </thead>
+        <tbody>
+          <% @goldapi_metal_rates.each do |metal| %>
+            <% if (metal.error_gold_api.code == 200) %>
+              <tr>
+                <td>
+                  Curreny: <br>
+                  Open:
+                </td>
+                <td align="right" style="width: 120px">
+                  <span style="display: ruby-base"><%= DateTime.strptime(metal.timestamp.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %></span><br>
+                  <span style="display: ruby-base"><%= DateTime.strptime(metal.open_time.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %></span>
+                </td>
+                <td>
+                  <span>Metal:</span><br/>
+                  <span>Currency:</span><br/>
+                  <span>Exchange:</span><br/>
+                  <span>Symbol:</span>
+                </td>
+                <td>
+                  <%= metal.metal %><br>
+                  <%= metal.currency %><br>
+                  <%= metal.exchange %><br>
+                  <%= metal.symbol %>
+                </td>
+<!--                <td><%#= metal.metal %></td>-->
+<!--                <td><%#= metal.currency %></td>-->
+<!--                <td><%#= metal.exchange %></td>-->
+<!--                <td><%#= metal.symbol %></td>-->
+                <td class="change-bacground-A">
+                  <span class="price-close">Close: </span>
+                  <span class="price-open">Open: </span>
+                  <span class="price-current">Current: </span>
+                  <span class="price-high">High: </span>
+                  <span class="price-low">Low: </span>
+                </td>
+                <td class = "change-bacground-A" style="text-align: right">
+<!--                  <%#= metal.prev_close_price %><br>-->
+                  <span class="price-close"><%= number_to_currency(metal.prev_close_price, unit:"$", precision: 2, format: "%n%u") %></span>
+                  <span class="price-open"><%= number_to_currency(metal.open_price, unit:"$", precision: 2, format: "%n%u") %></span>
+                  <span class="price-current"><%= number_to_currency(metal.price, unit:"$", precision: 2, format: "%n%u") %></span>
+                  <span class="price-high"><%= number_to_currency(metal.high_price, unit:"$", precision: 2, format: "%n%u") %><br></span>
+                  <span class="price-low"><%= number_to_currency(metal.low_price, unit:"$", precision: 2, format: "%n%u") %></span>
+                </td>
+<!--                <td align="right"><%#= metal.open_price %></td>-->
+<!--                <td align="right"><%#= number_to_currency(metal.low_price, unit:"", precision: 3, format: "%n%u") %></td>-->
+<!--                <td align="right"><%#= metal.high_price %></td>-->
+<!--                <td align="right"><%#= DateTime.strptime(metal.open_time.to_s,'%s').strftime("%Y-%m-%d \n %H:%M:%S") %></td>-->
+<!--                <td align="right"><%#= number_to_currency(metal.price, unit:"$", precision: 3, format: "%n%u") %> </td>-->
+<!--                <td style="vertical-align: middle; background-color: #151515;">-->
+                <td style="padding: 0; width: 80px">
+                  <span class="change-description">Current</span>
+                  <span class="change-description">Current</span>
+                  <span class="change-description">Max UP</span>
+                  <span class="change-description">Max DOWN</span>
+                </td>
+                <td style="padding: 0; width: 80px">
+                  <span class="<%= metal.ch > 0 ? 'up' : 'down' %> change change-bacground-A">
+                    <%= number_to_currency(metal.ch, unit:" $", precision: 2, format: "%n%u") %>
+                    <%= metal.ch > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
+                  </span>
+                  <span class="<%= metal.chp > 0 ? 'up' : 'down' %> change change-bacground-A">
+                    <%= number_to_currency(metal.chp, unit:"%", precision: 2, format: "%n%u") %>
+                    <%= metal.chp > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
+                  </span>
+                  <span class="<%= metal.high_price - metal.prev_close_price == 0 ? 'midle' : metal.high_price - metal.prev_close_price > 0 ? 'up' : 'down' %> change change-bacground-B">
+                    <%= number_to_currency(metal.high_price - metal.prev_close_price, unit:" $", precision: 2, format: "%n%u") %>
+                    <%= metal.high_price - metal.prev_close_price == 0 ? (render 'renders/icon_arrow_expand') : metal.high_price - metal.prev_close_price > 0 ?(render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
+                  </span>
+                  <span class="<%= metal.low_price - metal.prev_close_price == 0 ? 'midle' : metal.low_price - metal.prev_close_price > 0 ? 'up' : 'down' %> change change-bacground-B">
+                    <%= number_to_currency(metal.low_price - metal.prev_close_price, unit:" $", precision: 2, format: "%n%u") %>
+                    <%= metal.low_price - metal.prev_close_price == 0 ? (render 'renders/icon_arrow_expand') : metal.low_price - metal.prev_close_price > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
+                  </span>
+
+                </td>
+<!--                <td class="<%#= metal.chp > 0 ? 'up' : 'down' %>" style="background-color: #151515; min-width: 70px;" align="right">-->
+                  <%#= number_to_currency(metal.chp, unit:"%", precision: 2, format: "%n%u") %>
+                  <%#= metal.chp > 0 ? (render 'renders/icon_arrow_up') : (render 'renders/icon_arrow_down') %>
+<!--                </td>-->
+                <td align="right">
+                  ask:<br>
+                  bid:
+                  </td>
+                <td align="right">
+                  <%= metal.bid %><br>
+                  <%= metal.ask %>
+                </td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <b><%= @goldapi_metal_rates[0].error_gold_api.code %> : <%= @goldapi_metal_rates[0].error_gold_api.error_message %></b>
+    <% end %>
+  <% end %>
+<% else %>
+  <h4>Error database</h4>
+<% end %>

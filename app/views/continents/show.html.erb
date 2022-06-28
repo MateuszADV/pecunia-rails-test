@@ -1,0 +1,34 @@
+<% @root_path = Rails.root.join('app', 'assets', 'images','continents') %>
+
+<!--<p id="notice"><%#= notice %></p>-->
+
+<p>
+  <strong>Continnent Code:</strong>
+  <%= @continent.continent_code %>
+</p>
+
+<p>
+  <strong>Name pl:</strong>
+  <%= @continent.name_pl %>
+</p>
+
+<p>
+  <strong>Name en:</strong>
+  <%= @continent.name_en %>
+</p>
+
+<p>
+  <strong>File name:</strong>
+  <%= @continent.file_name %>
+</p>
+
+<p>
+  <% if (File.exist?(@root_path + (@continent.file_name))) %>
+    <%= (image_tag("continents/" + @continent.file_name, :alt => "Kontynent"))   %>
+  <% else %>
+    <%= image_tag("flags/test.png", :alt => "rss feed" ) %>
+  <% end %>
+</p>
+
+<%= link_to render('renders/button_edit'), edit_continent_path(@continent), class: "btn btn-sm btn-primary" %>
+<%= link_to render('renders/button_back'), continents_path, class: "btn btn-sm btn-secondary" %>
