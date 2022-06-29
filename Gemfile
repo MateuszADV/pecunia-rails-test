@@ -55,3 +55,5 @@ gem 'tzinfo-data', '>= 0'
 gem 'net-smtp', require: false
 gem 'net-pop', require: false
 gem 'net-imap', require: false
+
+gem 'nokogiri', '~> 1.13', '>= 1.13.6'
